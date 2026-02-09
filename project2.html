@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Buttons</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        h1{
+            margin: 50px;
+        }
+
+        h2{
+            margin:40px;
+        }
+
+        .section{
+            margin: 30px;
+        }
+
+        .btn{
+            padding: 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+       .primary{ 
+            background-color: blue; 
+        }
+
+        .primary:hover{
+            background-color: rgb(1, 1, 125); 
+        }
+
+        .secondary{ 
+            background-color: gray; 
+        }
+
+        .secondary:hover{ 
+            background-color: rgb(86, 86, 86); 
+        }
+
+        .success{ 
+            background-color: green; 
+        }
+
+        .success:hover{ 
+            background-color: rgb(1, 84, 1); 
+        }
+
+        .danger{ 
+            background-color: red; 
+        }
+
+        .danger:hover{ 
+            background-color: rgb(125, 1, 1); 
+        }
+        .group{
+            display: inline-flex;
+            gap: 10px;
+        }
+
+        .group button{
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 14px 26px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .group button:hover{
+            background-color: darkgreen;
+            transform: scale(1.05);
+        }
+
+    
+        .outline{
+            background-color: transparent;
+            color: blue;
+            border: 2px solid blue;
+        }
+
+        .outline:hover{
+            background-color: blue;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .gradient{
+            background:orangered;
+        }
+
+        .gradient:hover{
+            transform: scale(1.05);
+        }
+
+        .glass{
+            background: gray;
+            color: white;
+            border: 1px solid lightgray;
+            backdrop-filter: blur(10px);
+        }
+
+        .glass:hover{
+            background: transparent;
+            border: 1px solid gray;
+            transform: scale(1.1);
+        }
+
+        .shadow{
+            background-color: white;
+            color: black;
+            box-shadow: 0px 6px 12px grey;
+        }
+
+        .shadow:hover{
+            box-shadow: 0px 6px 12px gray;
+            transform: scale(1.05);
+        }
+
+        .rounded{
+            background-color: purple;
+            border-radius: 30px;
+        }
+
+        .rounded:hover{
+            background-color: darkmagenta;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS-Button</h1>
+    <p>Hover over the button below to see the CSS effect:</p>
+    <h2>Basic Button Styles</h2>
+    <div class="section">
+        <button class="btn primary">Primary</button>
+        <button class="btn secondary">Secondary</button>
+        <button class="btn success">Success</button>
+        <button class="btn danger">Danger</button>
+    </div>
+
+
+    <h2>Button Group</h2>
+    <div class="section">
+        <div class="group">
+            <button>Left</button>
+            <button>Middle</button>
+            <button>Right</button>
+        </div>
+    </div>
+
+ 
+    <h2>Modern Button Styles</h2>
+    <div class="section">
+        <button class="btn outline">Outline</button>
+        <button class="btn gradient">Gradient</button>
+        <button class="btn glass">Glass</button>
+        <button class="btn shadow">Shadow</button>
+        <button class="btn rounded">Rounded</button>
+    </div>
+
+</body>
+</html>
