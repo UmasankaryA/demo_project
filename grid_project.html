@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Grid Layout</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            gap: 12px;
+            padding: 10px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .header{
+            grid-area: header;
+            background-color: rgb(80, 160, 224);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header h2{
+            cursor: none;
+        }
+
+        .nav a{
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .nav a:hover{
+            background-color: rgb(16, 16, 235);
+        }
+
+        .sidebar{
+            grid-area: sidebar;
+            background-color: rgb(80, 146, 201);
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        .sidebar h3{
+            margin-left: 10px;
+            color: rgb(1, 59, 107);
+        }
+
+        .sidebar ul{
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li{
+            padding: 5px;
+        }
+
+        .sidebar a{
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover{
+            background-color: rgb(16, 16, 235);
+        }
+
+        .main{
+            grid-area: main;
+            padding: 15px;
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            border-radius: 10px;
+        }
+
+        .image{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px gray;
+            transition: transform 0.3s;
+        }
+
+        .image:hover{
+            transform: translateY(-8px);
+        }
+
+        .image img{
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .content{
+            padding: 12px;
+        }
+
+        .footer{
+            grid-area: footer;
+            display: grid;
+            gap: 12px;
+        }
+
+        .features{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .featurebox{
+            background-color: rgb(80, 160, 224);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .featurebox h3{
+            cursor: none;
+        }
+
+        .featurebox:hover{
+            transform: translateY(-5px);
+        }
+
+        .copyright{
+            background-color: rgb(80, 160, 224);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 900px){
+
+            .container{
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+            .sidebar{
+                display: flex;
+                overflow-x: auto;
+            }
+
+            .sidebar ul{
+                display: flex;
+                gap: 12px;
+            }
+
+            .sidebar li{
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 600px){
+
+            .container{
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+            .header{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 20px 15px;
+                gap: 12px;
+            }
+
+            .nav{
+                display: grid;
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+            
+            .nav a{
+                margin: 0;
+                width: 100%;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            .sidebar{
+                display: grid;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 15px 8px;
+                gap: 10px;
+
+            }
+            
+            .sidebar h3{
+                margin: 0;
+            }
+
+            .sidebar ul{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                padding: 0;
+                margin: 0;
+                align-items: center;
+            }
+
+            .sidebar a{
+                width: auto;
+                padding: 4px 10px;
+                text-align: center;
+            }
+
+            .main{
+                padding: 10px;
+            }
+
+            .footer{
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h2>CSS Grid Layout</h2>
+            <div class="nav">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+
+
+        <div class="sidebar">
+            <h3>Sidebar</h3>
+            <ul>
+                <li><a href="#">Grid Basics</a></li>
+                <li><a href="#">Grid Areas</a></li>
+                <li><a href="#">Responsive Grid</a></li>
+                <li><a href="#">Grid vs Flexbox</a></li>
+            </ul>
+        </div>
+
+
+        <div class="main">
+
+            <div class="image">
+                <img src="https://cdn.wallpapersafari.com/2/82/B2gHcq.jpg" alt="">
+                <div class="content">
+                    <h4>Grid Item 1</h4>
+                    <p>Learn how to create powerful layouts with CSS Grid.</p>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="https://wallpaper-house.com/data/out/9/wallpaper2you_355887.jpg" alt="">
+                <div class="content">
+                    <h4>Grid Item 2</h4>
+                    <p>Combine grid with other layout techniques for amazing results.</p>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="https://w0.peakpx.com/wallpaper/601/412/HD-wallpaper-65-ombre-sunset-beach-for-your-mobile-tablet-explore-beach-for-computer-beach-for-laptops-beaches.jpg" alt="">
+                <div class="content">
+                    <h4>Grid Item 3</h4>
+                    <p>Create responsive designs without media queries using auto-fit.</p>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="https://images.pexels.com/photos/1462892/pexels-photo-1462892.jpeg?cs=srgb&dl=pexels-thanhhoa-tran-640546-1462892.jpg&fm=jpg" alt="">
+                <div class="content">
+                    <h4>Grid Item 4</h4>
+                    <p>Master grid template areas for complex layouts.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+
+            <div class="features">
+                <div class="featurebox">
+                    <h3>Responsive</h3>
+                    <p>Adapts to all screen sizes</p>
+                </div>
+
+                <div class="featurebox">
+                    <h3>Flexible</h3>
+                    <p>Easy to rearrange elements</p>
+                </div>
+
+                <div class="featurebox">
+                    <h3>Powerful</h3>
+                    <p>Two-dimensional layouts</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 CSS Grid Demo. All rights reserved. Uma sankary A.
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
